@@ -1,4 +1,4 @@
-<h1 class="text-center">Le détail du produit</h1>
+<h1 class="text-center">Le détail du produit dans show.html.erb</h1>
 
 <h2 class="text-center">
   <%= @product.name %>
@@ -7,3 +7,7 @@
 <h3 class="text-center">
   Catégorie: <%= @product.url %>
 </h3>
+
+<p class="text-center">
+  <%= link_to "Revenir à la liste", products_path %>
+</p>
