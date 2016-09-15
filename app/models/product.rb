@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+  belongs_to :user
+
+  #validates :user, presence: true
   validates :name, presence: true, uniqueness: true
   validates :url, presence: true, uniqueness: true
   validates :category, inclusion: { in: %w(tech education design),
