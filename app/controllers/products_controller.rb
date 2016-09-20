@@ -35,13 +35,18 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to products_path
     else
-      render:edit
+      render
     end
   end
 
   def destroy
-    @product.destroy
-    redirect_to products_path
+    if @product.user == current_user
+      @product.destroy
+      redirect_to products_path
+    else
+      flash[:alert] = "Vous ne pouvez pas supprimer un produit que vous n'avez pas créer."
+      render :show
+    end
   end
 
   private
