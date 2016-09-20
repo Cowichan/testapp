@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  has_attachment :photo
+
   belongs_to :user
 
   #validates :user, presence: true

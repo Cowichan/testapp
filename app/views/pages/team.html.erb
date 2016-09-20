@@ -1,5 +1,8 @@
 <div class="container text-center">
   <h1>Meet us</h1>
+
+  <%= cl_image_tag "ckgyejzfhkqyqci5wvwr", width: 400, height: 100, crop: :fill %>
+
   <ul>
     <% @members.each do |member| %>
       <li>Member: <%= member%></li>
