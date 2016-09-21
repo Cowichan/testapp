@@ -31,13 +31,23 @@ class ProductsController < ApplicationController
   def edit
   end
 
-  def update
-    if @product.update(product_params)
-      redirect_to products_path
-    else
-      render
-    end
+  before_action :current_user?, only: [:edit, :destroy]
+
+  def current_user?
+      if @product.user != current_user
+          flash[:alert] = "You are not the owner."
+          redirect_to products_path
+      end
   end
+
+
+  # def update
+  #   if @product.update(product_params)
+  #     redirect_to products_path
+  #   else
+  #     render
+  #   end
+  # end
 
   def destroy
     if @product.user == current_user
